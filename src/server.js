@@ -7,9 +7,15 @@ app.use(express.json());
 const { register, login } = require("./controllers/auth.controller");
 const studentController = require("./controllers/student.controller");
 
-app.post("/register", register);
+const {teacherRegister,teacherLogin} = require("./controllers/auth.teacher.controller");
 
-app.post("/login",login);
+app.post("/student/register", register);
+app.post("/student/login", login);
+
+app.post("/teacher/register", teacherRegister);
+app.post("/teacher/login", teacherLogin);
+
+
 
 app.use("/students", studentController);
 
