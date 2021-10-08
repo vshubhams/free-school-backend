@@ -4,9 +4,9 @@ const router = express.Router();
 
 const Student = require("../models/student.model");
 
-router.post("", async function (req, res) {
-    const student = await Student.create(req.body);
-    return res.status(201).json({ student });
+router.get("", async function (req, res) {
+    const students = await Student.find();
+    return res.status(201).json({ students });
 });
 
 module.exports = router
