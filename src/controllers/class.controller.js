@@ -10,7 +10,7 @@ router.post("", async function (req, res) {
 })
 
 router.get("", async function (req, res) {
-    const classes = await Class.find().populate("teacher").lean().exec();
+    const classes = await Class.find().populate("teacher").sort({_id:-1}).lean().exec();
     return res.status(201).json({ classes });
 });
 
