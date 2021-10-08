@@ -9,6 +9,7 @@ const {teacherRegister,teacherLogin} = require("./controllers/auth.teacher.contr
 
 const studentController = require("./controllers/student.controller");
 const teacherController = require("./controllers/teacher.controller");
+const classController = require("./controllers/class.controller");
 
 app.post("/student/register", register);
 app.post("/student/login", login);
@@ -18,6 +19,7 @@ app.post("/teacher/login", teacherLogin);
 
 app.use("/students", studentController);
 app.use("/teachers", teacherController);
+app.use("/classes", classController);
 
 const port = process.env.PORT || 3001;
 app.listen(port, async function () {
