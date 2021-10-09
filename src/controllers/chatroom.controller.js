@@ -4,6 +4,10 @@ const Chatroom = require("../models/chatroom.model");
 
 //new
 router.post("/", async (req, res) => {
+  // const present = await Chatroom.find({
+  //   members: { $in: [req.body.members[0], req.body.members[1]] }
+  // });
+
   const newChatroom = new Chatroom(req.body);
 
   try {
