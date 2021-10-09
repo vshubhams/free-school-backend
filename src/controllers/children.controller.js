@@ -9,4 +9,9 @@ router.get("", async function (req, res) {
     return res.status(201).json({ children });
 });
 
+router.get("/:id", async function (req, res) {
+    const children = await Children.findById(req.params.id).lean().exec();
+    return res.status(201).json({ children });
+});
+
 module.exports = router
