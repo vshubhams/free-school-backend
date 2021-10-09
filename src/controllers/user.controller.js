@@ -9,7 +9,7 @@ router.get("", async function (req, res) {
   return res.status(201).json({ users });
 });
 
-router.get("/:id", async function (req, res) {
+router.get("/getById/:id", async function (req, res) {
   const user = await User.findById(req.params.id);
   return res.status(201).json({ user });
 });
