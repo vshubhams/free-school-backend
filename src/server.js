@@ -5,21 +5,18 @@ const app = express();
 app.use(express.json());
 
 const { register, login } = require("./controllers/auth.controller");
-const {teacherRegister,teacherLogin} = require("./controllers/auth.teacher.controller");
 
-const studentController = require("./controllers/student.controller");
-const teacherController = require("./controllers/teacher.controller");
+const userController = require("./controllers/user.controller");
 const classController = require("./controllers/class.controller");
+const childrenController = require("./controllers/children.controller");
 
-app.post("/student/register", register);
-app.post("/student/login", login);
 
-app.post("/teacher/register", teacherRegister);
-app.post("/teacher/login", teacherLogin);
+app.post("/register", register);
+app.post("/login", login);
 
-app.use("/students", studentController);
-app.use("/teachers", teacherController);
+app.use("/users", userController);
 app.use("/classes", classController);
+app.use("/children", childrenController);
 
 const port = process.env.PORT || 3001;
 app.listen(port, async function () {

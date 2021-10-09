@@ -11,17 +11,17 @@ router.post("", async function (req, res) {
 
 // get all classes
 router.get("", async function (req, res) {
-    const classes = await Class.find().populate("teacher").sort({_id:-1}).lean().exec();
+    const classes = await Class.find().populate("user").sort({_id:-1}).lean().exec();
     return res.status(201).json({ classes });
 });
-// get all classes by a teacher Id;
-router.get("/teacher/:id", async function (req, res) {
-    const classes = await Class.find({teacher:req.params.id}).populate("teacher").sort({_id:-1}).lean().exec();
+// get all classes by a user Id;
+router.get("/user/:id", async function (req, res) {
+    const classes = await Class.find({user:req.params.id}).populate("user").sort({_id:-1}).lean().exec();
     return res.status(201).json({ classes });
 });
 // get all classes of a specific subject;
 router.get("/subject/:subject", async function (req, res) {
-    const classes = await Class.find({subject:req.params.subject}).populate("teacher").sort({_id:-1}).lean().exec();
+    const classes = await Class.find({subject:req.params.subject}).populate("user").sort({_id:-1}).lean().exec();
     return res.status(201).json({ classes });
 });
 
