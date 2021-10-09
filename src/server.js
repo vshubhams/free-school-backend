@@ -14,6 +14,7 @@ const userController = require("./controllers/user.controller");
 const classController = require("./controllers/class.controller");
 const childrenController = require("./controllers/children.controller");
 const chatroomController = require("./controllers/chatroom.controller");
+const donatorController = require("./controllers/donator.controller");
 const msgController = require("./controllers/msg.controller");
 
 app.post("/register", register);
@@ -23,6 +24,7 @@ app.use("/users", userController);
 app.use("/classes", classController);
 app.use("/children", childrenController);
 app.use("/chatroom", chatroomController);
+app.use("/donator", donatorController);
 app.use("/msg", msgController);
 
 const port = process.env.PORT || 3001;
