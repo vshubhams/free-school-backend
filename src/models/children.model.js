@@ -5,7 +5,8 @@ const childrenSchema = new mongoose.Schema({
     city: { type: String, required: true},
     details: { type: String, required: true},
     by: { type: String, required: true},
-    amount: { type: String, required: true},
+    current_amt: { type: String, required: true },
+    target_amt:{type:String,required:true}
 }, {
     versionKey: false,
 });
