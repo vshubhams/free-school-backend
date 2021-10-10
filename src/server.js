@@ -77,6 +77,15 @@ io.on("connection", (socket) => {
     });
   });
 
+  socket.on("class", ({ senderId, text, lectureDetail }) => {
+    console.log(senderId, text);
+    io.emit("notifyClass", {
+      senderId,
+      text,
+      lectureDetail,
+    });
+  });
+
   //disconnected
   socket.on("disconnect", () => {
     console.log("user disconected");
