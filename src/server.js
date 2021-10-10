@@ -16,6 +16,7 @@ const childrenController = require("./controllers/children.controller");
 const chatroomController = require("./controllers/chatroom.controller");
 const donatorController = require("./controllers/donator.controller");
 const msgController = require("./controllers/msg.controller");
+const paymentController = require("./controllers/payment.controller")
 
 app.post("/register", register);
 app.post("/login", login);
@@ -26,6 +27,7 @@ app.use("/children", childrenController);
 app.use("/chatroom", chatroomController);
 app.use("/donator", donatorController);
 app.use("/msg", msgController);
+app.use("/payment", paymentController);
 
 const port = process.env.PORT || 3001;
 const server = app.listen(port, async function () {
